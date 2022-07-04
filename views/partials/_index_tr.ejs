@@ -1,0 +1,18 @@
+<% let slno = 0 %>
+<% for(let user of users) { %>
+<tr>
+  <td><%= ++slno %></td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.gender %></td>
+  <td><%= user.status %></td>
+  <td>
+    <a href="/update-user/<%= user._id %>" class="btn border-shadow update">
+      <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+    </a>
+    <a href="/" class="delete btn border-shadow" data-id="<%= user._id %>">
+      <span class="text-gradient"><i class="fas fa-times"></i></span>
+    </a>
+  </td>
+</tr>
+<% } %>

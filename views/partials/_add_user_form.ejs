@@ -1,0 +1,41 @@
+<!-- form handling: posting data to /api/users -->
+<form action="/api/users" method="POST" id="add_user" autocomplete="off">
+  <div class="new_user">
+    <div class="form-group">
+      <label for="name" class="text-light">Name</label>
+      <input type="hidden" name="id" value="" />
+      <input type="text" name="name" value="" placeholder="Enter name here..." required/>
+    </div>
+    <div class="form-group">
+      <label for="email" class="text-light">Email</label>
+      <input type="text" name="email" value="" placeholder="Enter email here..." required/>
+    </div>
+    <div class="form-group">
+      <label for="radio-1" class="text-light">Gender:</label>
+      <div class="radio inline">
+        <input type="radio" name="gender" value="Male" id="radio-1" />
+        <label for="radio-1" class="radio-label">Male</label>
+      </div>
+      <div class="radio inline">
+        <input type="radio" name="gender" value="Female" id="radio-2" />
+        <label for="radio-2" class="radio-label">Female</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="radio-3" class="text-light">Status:</label>
+      <div class="radio inline">
+        <input type="radio" name="status" value="Active" id="radio-3" />
+        <label for="radio-3" class="radio-label">Active</label>
+      </div>
+      <div class="radio inline">
+        <input type="radio" name="status" value="Inctive" id="radio-4" />
+        <label for="radio-4" class="radio-label">Inactive</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn tex-dark add">Save</button>
+    </div>
+  </div>
+</form>
