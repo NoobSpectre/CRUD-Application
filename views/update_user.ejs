@@ -1,79 +1,94 @@
 <!-- include header.ejs -->
 <%- include('partials/_header') %>
-  <!-- /include header.ejs -->
+<!-- /include header.ejs -->
 
-  <div class="response1 text-center response-styles hidden">
-    <p>User credentials updated successfully!</p>
-  </div>
+<div class="response1 text-center response-styles hidden">
+  <p>User credentials updated successfully!</p>
+</div>
 
-  <div class="response2 text-center response-styles hidden">
-    <p>User email already exists!</p>
-  </div>
+<div class="response2 text-center response-styles hidden">
+  <p>User email already exists!</p>
+</div>
 
-  <!-- main section -->
-  <main id="site-main">
-    <div class="container">
-      <div class="form-title text-center">
-        <h2 class="text-dark">Update User</h2>
-        <span class="text-light">Use the below form to update an existing user account</span>
+<!-- main section -->
+<main id="site-main">
+  <div class="container">
+    <div class="form-title text-center">
+      <h2 class="text-dark">Update User</h2>
+      <span class="text-light"
+        >Use the below form to update an existing user account</span
+      >
+    </div>
+
+    <!-- form handling -->
+    <form method="POST" id="update_user" autocomplete="off">
+      <div class="new_user">
+        <div class="form-group">
+          <input type="hidden" name="_id" value="<%= user._id %>" />
+          <label for="name" class="text-light">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value="<%= user.name %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email" class="text-light">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            value="<%= user.email %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="male" class="text-light">Gender:</label>
+          <div class="radio inline">
+            <input type="radio" name="gender" id="male" value="Male"
+            <%=user.gender==='Male' ? 'checked' : '' %> />
+            <label for="male" class="radio-label">Male</label>
+          </div>
+          <div class="radio inline">
+            <input type="radio" name="gender" id="female" value="Female"
+            <%=user.gender==='Female' ? 'checked' : '' %> />
+            <label for="female" class="radio-label">Female</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="active" class="text-light">Status:</label>
+          <div class="radio inline">
+            <input type="radio" name="status" id="active" value="Student"
+            <%=user.status==='Student' ? 'checked' : '' %> />
+            <label for="active" class="radio-label">Student</label>
+          </div>
+          <div class="radio inline">
+            <input type="radio" name="status" id="inactive" value="Teacher"
+            <%=user.status==='Teacher' ? 'checked' : '' %> />
+            <label for="inactive" class="radio-label">Teacher</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn tex-dark update">Save</button>
+        </div>
       </div>
+    </form>
 
-      <!-- form handling -->
-      <form method="POST" id="update_user" autocomplete="off">
-        <div class="new_user">
-          <div class="form-group">
-            <input type="hidden" name="_id" value="<%= user._id %>" />
-            <label for="name" class="text-light">Name</label>
-            <input type="text" name="name" id="name" value="<%= user.name %>" required />
-          </div>
-          <div class="form-group">
-            <label for="email" class="text-light">Email</label>
-            <input type="text" name="email" id="email" value="<%= user.email %>" required />
-          </div>
-          <div class="form-group">
-            <label for="male" class="text-light">Gender:</label>
-            <div class="radio inline">
-              <input type="radio" name="gender" id="male" value="Male" <%=user.gender==='Male' ? 'checked' : '' %> />
-              <label for="male" class="radio-label">Male</label>
-            </div>
-            <div class="radio inline">
-              <input type="radio" name="gender" id="female" value="Female" <%=user.gender==='Female' ? 'checked' : '' %>
-              />
-              <label for="female" class="radio-label">Female</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="active" class="text-light">Status:</label>
-            <div class="radio inline">
-              <input type="radio" name="status" id="active" value="Active" <%=user.status==='Active' ? 'checked' : '' %>
-              />
-              <label for="active" class="radio-label">Active</label>
-            </div>
-            <div class="radio inline">
-              <input type="radio" name="status" id="inactive" value="Inactive" <%=user.status==='Inactive' ? 'checked'
-                : '' %> />
-              <label for="inactive" class="radio-label">Inactive</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <button type="submit" class="btn tex-dark update">Save</button>
-          </div>
-        </div>
-      </form>
-
-      <div class="box-nav d-flex justify-between">
-        <div class="filter">
-          <a href="/"><i class="fas fa-angle-double-left"></i> All Users</a>
-        </div>
+    <div class="box-nav d-flex justify-between">
+      <div class="filter">
+        <a href="/"><i class="fas fa-angle-double-left"></i> All Users</a>
       </div>
     </div>
-  </main>
-  <!-- /main section -->
+  </div>
+</main>
+<!-- /main section -->
 
-  <script defer src="js/update-user.js"></script>
+<script defer src="js/update-user.js"></script>
 
-  <!-- include footer.ejs -->
-  <%- include('partials/_footer') %>
-    <!-- /include footer.ejs -->
+<!-- include footer.ejs -->
+<%- include('partials/_footer') %>
+<!-- /include footer.ejs -->

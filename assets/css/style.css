@@ -36,7 +36,7 @@ a {
 }
 
 .justify-between {
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .text-center {
