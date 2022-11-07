@@ -8,20 +8,15 @@ const serializeArray = () => {
 
   const fields = document.querySelectorAll('input');
   for (let field of fields) {
-    if (field.type === 'radio') {
-      if (field.checked) {
-        formData = { ...formData, [field.name]: field.value };
-      }
-    } else {
-      formData = { ...formData, [field.name]: field.value };
-    }
+    if (field.type === 'radio' && !field.checked) continue;
+    formData = { ...formData, [field.name]: field.value };
   }
 
   return formData;
 };
 
 //async function to make PUT request to the server
-const requestFunction = async data => {
+const requestFunc = async data => {
   const { _id, name, email, gender, status } = data;
   const userData = { name, email, gender, status };
 
@@ -45,15 +40,14 @@ const requestFunction = async data => {
       return fetchedData;
     }
   } catch (err) {
-    throw new Error(err.message); //throw exception if error is thrown from server side requestFunction function call to server
+    throw new Error(err.message); //throw exception if error is thrown from server side requestFunc
   }
 };
 
 update_user.addEventListener('submit', e => {
-  //prevents default behaviour i.e. form submission on click on save
   e.preventDefault();
 
   const submittedData = serializeArray();
 
-  requestFunction(submittedData);
+  requestFunc(submittedData);
 });
