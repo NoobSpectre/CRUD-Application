@@ -10,8 +10,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  gender: String,
-  status: String
+  gender: {
+    type: String,
+    required: true
+  },
+  status: {
+    type: String,
+    required: true
+  }
 });
 
 const User = mongoose.model('userdb', userSchema)
