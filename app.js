@@ -31,9 +31,6 @@ app.use('/js', express.static(path.join(__dirname, 'assets/js')));
 app.use('/update-user/css', express.static(path.join(__dirname, 'assets/css')));
 app.use('/update-user/js', express.static(path.join(__dirname, 'assets/js')));
 
-//parse request
-app.use(express.urlencoded({ extended: false }));
-
 //parse request into json
 app.use(express.json());
 

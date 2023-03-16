@@ -5,7 +5,7 @@ const User = require('../model/model');
 exports.create = async (req, res) => {
   //validate request
   if (!req.body) {
-    return res.status(400).send({
+    return res.status(400).json({
       message: 'Content can not be empty!',
     });
   }
@@ -48,7 +48,11 @@ exports.findOne = async (req, res) => {
       });
     }
     res.send(existingUser);
-  } catch (err) {}
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message,
+    })
+  }
 };
 
 //update an existing user by user id
@@ -74,7 +78,7 @@ exports.update = async (req, res) => {
     //   res.redirect('/');
     // }, 0);
   } catch (err) {
-    res.status(500).send({
+    res.status(500).json({
       message: err.message || 'Error while updating the user',
     });
   }
